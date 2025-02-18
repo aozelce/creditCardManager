@@ -2,4 +2,7 @@
 
 | Date | Task | Hours | Notes|
 |------|------|-------|------|
-| 1/19/24| Set up project repository|2 | |
+|1/19/25| Set up project repository|2 | |
+|2/12/25| Added timelog and read.me files|1|
+|2/18/25| Added user stories|1|
+|2/18/25| Added Updated read.me file |1|
