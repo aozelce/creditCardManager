@@ -56,6 +56,6 @@ Enter the Credit Card Manager, an innovative app designed to simplify the proces
 * IDE: IntelliJ IDEA
 
 #### Design
-### [User Stories](DesignDocuments\UserStory.md)
-### [Screen Design](DesignDocuments\Screens.md)
+### [User Stories](/DesignDocuments/UserStory.md)
+### [Screen Design](/DesignDocuments/Screens.md)
 ### [Timelog](TimeLog.md)
