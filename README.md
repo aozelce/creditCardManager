@@ -19,3 +19,44 @@ Options to Add, Edit, and Delete Credit Card Information: Users can manage their
 Flexibility to Update Changes: The app provides the flexibility to update changes from your bank, such as new pay dates or credit limits, ensuring that your credit card information is always current.
 
 By integrating these features, the Credit Card Manager app aims to alleviate the difficulties associated with managing multiple credit cards, providing users with a streamlined and efficient tool to take control of their finances. This will ultimately lead to improved financial health, better utilization of credit card benefits, and reduced stress related to managing multiple credit accounts.
+
+Here is an example view of iy might look like;
+
+![alt text](<model image for indie project.jpeg>)
+
+Project Technologies/Techniques
+Security/Authentication
+AWS Cognito
+Database
+MySQL 8.x
+ORM Framework
+Hibernate Version TBD
+Dependency Management
+Maven
+Web Services consumed using Java
+TBD
+CSS
+Bootstrap
+Data Validation
+Bootstrap Validator for front end
+Explore Hibernate Validator?
+Logging
+Log4J2
+Hosting
+AWS
+Tech I'd like to explore as part of this work
+CI/CD tools in AWS
+AWS Cognito
+Materialize
+Google Maps API
+Hibernate Validator
+Hibernate Search
+Project Lombok
+Unit Testing
+JUnit tests to cover all testable logic
+IDE: IntelliJ IDEA
+
+Design
+User Stories
+Screen Design
+Timelog
