@@ -20,7 +20,7 @@ Enter the Credit Card Manager, an innovative app designed to simplify the proces
 
 * By integrating these features, the Credit Card Manager app aims to alleviate the difficulties associated with managing multiple credit cards, providing users with a streamlined and efficient tool to take control of their finances. This will ultimately lead to improved financial health, better utilization of credit card benefits, and reduced stress related to managing multiple credit accounts.
 
-* Here is an example view of iy might look like;
+* Here is an example view of what it might look like ultimately;
 
 ![alt text](<model image for indie project.jpeg>)
 
