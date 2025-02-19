@@ -36,8 +36,5 @@ As a registered user, I want to reset my password if I forget it so that I can r
 Edit User Profile
 As a registered user, I want to edit my profile so that I can keep my personal information up to date.
 
-Report Inaccurate Card Information
-As a registered user, I want to report inaccurate credit card information so that errors can be corrected.
-
 Admin Review Inaccurate Card Info
-As an admin, I want to receive notifications of reported inaccurate card info so that I can address the issues promptly.
+As an admin, I want to be able to review all of the registered users.
