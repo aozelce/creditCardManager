@@ -8,3 +8,4 @@
 |2/18/25| Added Updated read.me file |1| |
 |2/19/25| Screen designs/ Wireframes added.| 3| Used Figma for design|
 |2/19/25| Added Project Plan and admin panel to wireframes| 2 | |
+|3/08/25| Created the database
