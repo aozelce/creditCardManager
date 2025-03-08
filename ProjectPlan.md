@@ -174,4 +174,4 @@ Topic: Individual Project Presentations
 - [ ] Project Steps:
     - [ ] Create presentation slides and demos.
     - [ ] Rehearse presentations.
-[ ] Individual Projects due 5/14, 9 p.m.
+- [ ] Individual Projects due 5/14, 9 p.m.
