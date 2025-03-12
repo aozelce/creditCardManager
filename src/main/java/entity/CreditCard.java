@@ -1,18 +1,40 @@
 package entity;
 
+import jakarta.persistence.*;
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Date;
 
+@Entity
+@Table(name = "CreditCards")
 public class CreditCard {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "card_id")
     private int cardId;
+
+    @Column(name = "user_id", nullable = false)
     private int userId;
+
+    @Column(name = "issuer_id", nullable = false)
     private int issuerId;
+
+    @Column(name = "card_number", nullable = false)
     private String cardNumber;
+
+    @Column(name = "exp_date", nullable = false)
     private Date expDate;
+
+    @Column(name = "ccv", nullable = false)
     private String ccv;
+
+    @Column(name = "due_date", nullable = false)
     private Date dueDate;
+
+    @Column(name = "credit_limit", nullable = false, precision = 10, scale = 2)
     private BigDecimal creditLimit;
+
+    @Column(name = "current_balance", nullable = false, precision = 10, scale = 2)
     private BigDecimal currentBalance;
 
     // Constructors

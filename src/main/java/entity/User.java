@@ -1,12 +1,29 @@
 package entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private int userId;
+
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
+
+    @Column(name = "email", nullable = false, unique = true)
     private String email;
+
+    @Column(name = "external_auth_id")
     private String externalAuthId;
+
+    @Column(name = "first_name")
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
 
     // Constructors

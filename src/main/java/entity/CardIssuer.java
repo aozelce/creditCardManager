@@ -1,8 +1,17 @@
 package entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "CardIssuers")
 public class CardIssuer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "issuer_id")
     private int issuerId;
+
+    @Column(name = "issuer_name", nullable = false)
     private String issuerName;
 
     // Constructors
