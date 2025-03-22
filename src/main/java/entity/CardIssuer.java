@@ -2,6 +2,9 @@ package entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "CardIssuers")
 public class CardIssuer {
@@ -13,6 +16,10 @@ public class CardIssuer {
 
     @Column(name = "issuer_name", nullable = false)
     private String issuerName;
+
+    // Arraylist of CreditCards
+    @OneToMany(mappedBy = "cardIssuer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<CreditCard> creditCards = new ArrayList<>();
 
     // Constructors
     public CardIssuer() {}

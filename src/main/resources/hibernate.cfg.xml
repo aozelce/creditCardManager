@@ -17,7 +17,10 @@
         <property name="hibernate.c3p0.idle_test_period">3000</property>
 
 
-        <mapping class=""/>
+        <mapping class="entity.CardIssuer"/>
+        <mapping class="entity.CreditCard"/>
+        <mapping class="entity.User"/>
+
 
 
 

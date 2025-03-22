@@ -11,13 +11,15 @@ public class CreditCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "card_id")
-    private int cardId;
+    private int cardId; // Using int as requested
 
-    @Column(name = "user_id", nullable = false)
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
-    @Column(name = "issuer_id", nullable = false)
-    private int issuerId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "issuer_id", nullable = false)
+    private CardIssuer cardIssuer;
 
     @Column(name = "card_number", nullable = false)
     private String cardNumber;
@@ -38,11 +40,12 @@ public class CreditCard {
     private BigDecimal currentBalance;
 
     // Constructors
-    public CreditCard() {}
+    public CreditCard() {
+    }
 
-    public CreditCard(int userId, int issuerId, String cardNumber, Date expDate, String ccv, Date dueDate, BigDecimal creditLimit, BigDecimal currentBalance) {
-        this.userId = userId;
-        this.issuerId = issuerId;
+    public CreditCard(User user, CardIssuer cardIssuer, String cardNumber, Date expDate, String ccv, Date dueDate, BigDecimal creditLimit, BigDecimal currentBalance) {
+        this.user = user;
+        this.cardIssuer = cardIssuer;
         this.cardNumber = cardNumber;
         this.expDate = expDate;
         this.ccv = ccv;
@@ -60,20 +63,20 @@ public class CreditCard {
         this.cardId = cardId;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getIssuerId() {
-        return issuerId;
+    public CardIssuer getCardIssuer() {
+        return cardIssuer;
     }
 
-    public void setIssuerId(int issuerId) {
-        this.issuerId = issuerId;
+    public void setCardIssuer(CardIssuer cardIssuer) {
+        this.cardIssuer = cardIssuer;
     }
 
     public String getCardNumber() {
@@ -128,8 +131,8 @@ public class CreditCard {
     public String toString() {
         return "CreditCard{" +
                 "cardId=" + cardId +
-                ", userId=" + userId +
-                ", issuerId=" + issuerId +
+                ", user=" + (user != null ? user.getUserId() : null) +
+                ", cardIssuer=" + (cardIssuer != null ? cardIssuer.getIssuerId() : null) +
                 ", cardNumber='" + cardNumber + '\'' +
                 ", expDate=" + expDate +
                 ", ccv='" + ccv + '\'' +
