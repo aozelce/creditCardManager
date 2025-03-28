@@ -1,4 +1,4 @@
-package persistence;
+package com.aozelce.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -6,6 +6,11 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+/**
+ * The type Session factory provider.
+ *
+ *  @author aozelce
+ */
 public class SessionFactoryProvider {
 
     private static SessionFactory sessionFactory;
@@ -13,6 +18,11 @@ public class SessionFactoryProvider {
     private SessionFactoryProvider() {
     }
 
+    /**
+     * Gets session factory.
+     *
+     * @return the session factory
+     */
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             createSessionFactory();
