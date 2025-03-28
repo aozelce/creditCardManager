@@ -1,9 +1,5 @@
-package persistence;
+package com.aozelce.persistence;
 
-
-import entity.CardIssuer;
-import entity.CreditCard;
-import entity.User;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
