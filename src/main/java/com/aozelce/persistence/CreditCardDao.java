@@ -1,6 +1,6 @@
-package persistence;
+package com.aozelce.persistence;
 
-import entity.CreditCard;
+import com.aozelce.entity.CreditCard;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
@@ -12,11 +12,24 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
+/**
+ * The type Credit card dao.
+ *
+ *  @author aozelce
+ */
 public class CreditCardDao {
 
     private final Logger logger = LogManager.getLogger(this.getClass());
+    /**
+     * The Session factory.
+     */
     SessionFactory sessionFactory = SessionFactoryProvider.getSessionFactory();
 
+    /**
+     * Gets all credit cards.
+     *
+     * @return the all credit cards
+     */
     public List<CreditCard> getAllCreditCards() {
         Session session = sessionFactory.openSession();
         CriteriaBuilder builder = session.getCriteriaBuilder();
@@ -27,6 +40,12 @@ public class CreditCardDao {
         return creditCards;
     }
 
+    /**
+     * Gets by id.
+     *
+     * @param id the id
+     * @return the by id
+     */
     public CreditCard getById(int id) {
         Session session = sessionFactory.openSession();
         CreditCard creditCard = session.get(CreditCard.class, id);
@@ -34,6 +53,11 @@ public class CreditCardDao {
         return creditCard;
     }
 
+    /**
+     * Update.
+     *
+     * @param creditCard the credit card
+     */
     public void update(CreditCard creditCard) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -42,6 +66,12 @@ public class CreditCardDao {
         session.close();
     }
 
+    /**
+     * Insert int.
+     *
+     * @param creditCard the credit card
+     * @return the int
+     */
     public int insert(CreditCard creditCard) {
         int id;
         Session session = sessionFactory.openSession();
@@ -53,6 +83,11 @@ public class CreditCardDao {
         return id;
     }
 
+    /**
+     * Delete.
+     *
+     * @param creditCard the credit card
+     */
     public void delete(CreditCard creditCard) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
@@ -61,6 +96,13 @@ public class CreditCardDao {
         session.close();
     }
 
+    /**
+     * Gets by property equal.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property equal
+     */
     public List<CreditCard> getByPropertyEqual(String propertyName, String value) {
         Session session = sessionFactory.openSession();
         logger.debug("Searching for CreditCard with " + propertyName + " = " + value);
@@ -73,6 +115,13 @@ public class CreditCardDao {
         return creditCards;
     }
 
+    /**
+     * Gets by property like.
+     *
+     * @param propertyName the property name
+     * @param value        the value
+     * @return the by property like
+     */
     public List<CreditCard> getByPropertyLike(String propertyName, String value) {
         Session session = sessionFactory.openSession();
         logger.debug("Searching for CreditCard with {} = {}", propertyName, value);
