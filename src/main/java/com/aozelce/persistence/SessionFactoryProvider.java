@@ -1,5 +1,7 @@
 package com.aozelce.persistence;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -12,6 +14,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  *  @author aozelce
  */
 public class SessionFactoryProvider {
+
+    private static final Logger logger = LogManager.getLogger(SessionFactoryProvider.class);
 
     private static SessionFactory sessionFactory;
 
@@ -33,7 +37,7 @@ public class SessionFactoryProvider {
     private static void createSessionFactory() {
         try {
             StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder()
-                    .configure("hibernate.cfg.xml") // your hibernate.cfg.xml file name
+                    .configure("hibernate.cfg.xml")
                     .build();
 
             Metadata metadata = new MetadataSources(standardRegistry)
@@ -41,9 +45,10 @@ public class SessionFactoryProvider {
                     .build();
 
             sessionFactory = metadata.getSessionFactoryBuilder().build();
+            logger.info("SessionFactory created successfully");
 
         } catch (Throwable ex) {
-            System.err.println("SessionFactory creation failed: " + ex);
+            logger.error("SessionFactory creation failed: ", ex);
             throw new ExceptionInInitializerError(ex);
         }
     }
