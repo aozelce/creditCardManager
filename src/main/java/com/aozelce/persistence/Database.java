@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
+
+import com.aozelce.utilities.PropertiesLoader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 /**
@@ -37,18 +39,14 @@ public class Database {
     }
 
     /** load the properties file containing the driver, connection url, userid and pwd.
-     * TODO this would be improved by using properties loader interface provided in adv java
      */
     private void loadProperties() {
-        properties = new Properties();
+        PropertiesLoader propertiesLoader = new PropertiesLoader() {};
         try {
-            properties.load (this.getClass().getResourceAsStream("/database.properties"));
-        } catch (IOException ioe) {
-            logger.error("Database.loadProperties()...Cannot load the properties file", ioe);
+            properties = propertiesLoader.loadProperties("/database.properties");
         } catch (Exception e) {
-            logger.error("Database.loadProperties()...", e);
+            logger.error("Database.loadProperties()...Cannot load the properties file", e);
         }
-
     }
 
     /** get the only Database object available
