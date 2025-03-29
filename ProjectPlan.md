@@ -27,35 +27,32 @@ Topic: JDBC Review, IntelliJ Debugger, Version Control (Git)
 ### Week 3: Logging and Unit Testing (2/3)
 Topic: Logging (Log4J), Unit Testing (JUnit)
 
-- [ ] Setup Log4J.
-- [ ] Set up JUnit for unit testing.
-- [ ] Begin writing unit tests for core functionality.
-- [ ] Project Steps:
-    - [ ] Create basic logging configuration with Log4J.
-    - [ ] Write unit tests for initial project setup.
-- [ ] Update project time log.
+- [x] Setup Log4J.
+- [x] Set up JUnit for unit testing.
+- [x] Begin writing unit tests for core functionality.
+- [x] Project Steps:
+    - [x] Create basic logging configuration with Log4J.
+    - [x] Write unit tests for initial project setup.
 
 ### Week 4: Data Access Objects (DAOs) and Hibernate (2/10)
 Topic: Data Access Objects (DAOs), Hibernate
 
-- [ ] Set up Hibernate with MySQL.
-- [ ] Create entity classes corresponding to database tables.
-- [ ] Implement basic CRUD operations using Hibernate.
-- [ ] Project Steps:
-    - [ ] Map entity classes to database tables.
-    - [ ] Implement DAO classes for CRUD operations.
-- [ ] Individual Project Checkpoint 1 due 2/12.
-- [ ] Update project time log.
+- [x] Set up Hibernate with MySQL.
+- [x] Create entity classes corresponding to database tables.
+- [x] Implement basic CRUD operations using Hibernate.
+- [x] Project Steps:
+    - [x] Map entity classes to database tables.
+    - [x] Implement DAO classes for CRUD operations.
+- [x] Individual Project Checkpoint 1 due 2/12.
 
 ### Week 5: Hibernate (2/17)
 Topic: Hibernate
 
-- [ ] Continue refining Hibernate implementation.
+- [x] Continue refining Hibernate implementation.
 - [ ] Develop the backend API to retrieve a list of credit cards for a user.
 - [ ] Project Steps:
     - [ ] Create RESTful endpoints for CRUD operations.
     - [ ] Test API endpoints with Postman or a similar tool.
-- [ ] Update project time log.
 
 ### Week 6: Deployment to AWS (2/24)
 Topic: Deployment to AWS, Individual Project Reviews
@@ -67,7 +64,6 @@ Topic: Deployment to AWS, Individual Project Reviews
     - [ ] Deploy application to AWS.
 - [ ] Individual Project Reviews (Challenge).
 - [ ] Peer Design Review Feedback (Challenge).
-- [ ] Update project time log.
 
 ### Week 7: Security and Authentication (3/3)
 Topic: Security, Authentication
@@ -79,7 +75,6 @@ Topic: Security, Authentication
     - [ ] Integrate Cognito with backend.
     - [ ] Create user management API endpoints.
 - [ ] Individual Project Checkpoint 2 due 3/5.
-- [ ] Update project time log.
 
 ### Week 8: Web Services Intro (3/10)
 Topic: Web Services Intro
@@ -89,7 +84,6 @@ Topic: Web Services Intro
 - [ ] Project Steps:
     - [ ] Create frontend forms and views for credit card management.
     - [ ] Connect frontend to backend APIs.
-- [ ] Update project time log.
 
 ### Week 9: RESTful Web Services (3/24)
 Topic: RESTful Web Services
@@ -101,7 +95,6 @@ Topic: RESTful Web Services
     - [ ] Validate input data in forms.
 - [ ] Individual Project Checkpoint 3 due 3/26.
 - [ ] Team project repository created with problem statement, project plan, etc.
-- [ ] Update project time log.
 
 ### Week 10: Work Week (3/31)
 Topic: Work Week
@@ -111,7 +104,6 @@ Topic: Work Week
 - [ ] Project Steps:
     - [ ] Review and refactor codebase.
     - [ ] Ensure all components are thoroughly tested.
-- [ ] Update project time log.
 
 ### Week 11: Work Week (4/7)
 Topic: Work Week
@@ -123,7 +115,6 @@ Topic: Work Week
 - [ ] Project Steps:
     - [ ] Conduct integration tests across all modules.
     - [ ] Collect and implement user feedback.
-- [ ] Update project time log.
 
 ### Week 12: Team Project Presentations (4/14)
 Topic: Team Project Presentations
@@ -135,7 +126,6 @@ Topic: Team Project Presentations
     - [ ] Finalize deployment on AWS.
     - [ ] Set up monitoring and alerting tools.
 - [ ] Online Team Projects due 4/16, 9 p.m.
-- [ ] Update project time log.
 
 ### Week 13: Asynchronous Messaging (4/21)
 Topic: Asynchronous Messaging
@@ -147,7 +137,6 @@ Topic: Asynchronous Messaging
 - [ ] Project Steps:
     - [ ] Document all features and modules.
     - [ ] Conduct final tests and reviews.
-- [ ] Update project time log.
 
 ### Week 14: Individual Project Code Reviews (4/28)
 Topic: Individual Project Code Reviews
@@ -157,7 +146,6 @@ Topic: Individual Project Code Reviews
 - [ ] Project Steps:
     - [ ] Ensure all code is clean and well-documented.
     - [ ] Address feedback from code reviews.
-- [ ] Update project time log.
 
 ### Week 15: Work Week (5/5)
 Topic: Work Week
@@ -165,7 +153,6 @@ Topic: Work Week
 - [ ] Make any final adjustments.
 - [ ] Project Steps:
     - [ ] Final touch-ups and polish.
-- [ ] Update project time log.
 
 ### Week 16: Individual Project Presentations (5/12)
 Topic: Individual Project Presentations
