@@ -60,7 +60,7 @@ class UserDaoTest {
         userDao.update(user);
 
         User updatedUser = userDao.getById(1);
-        assertEquals("UpdatedName", updatedUser.getFirstName());
+        assertEquals(updatedUser, user);
     }
 
     /**
@@ -79,7 +79,7 @@ class UserDaoTest {
 
         User insertedUser = userDao.getById(newUserId);
         assertNotNull(insertedUser);
-        assertEquals("new_user", insertedUser.getUsername());
+        assertEquals(newUser, insertedUser);
     }
 
     /**
