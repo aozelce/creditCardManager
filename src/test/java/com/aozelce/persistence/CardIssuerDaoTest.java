@@ -58,7 +58,7 @@ class CardIssuerDaoTest {
         cardIssuerDao.update(cardIssuer);
 
         CardIssuer updatedCardIssuer = cardIssuerDao.getById(1);
-        assertEquals("UpdatedIssuerName", updatedCardIssuer.getIssuerName());
+        assertEquals(cardIssuer, updatedCardIssuer);
     }
 
     /**

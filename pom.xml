@@ -100,7 +100,11 @@
   </repositories>
 
   <build>
-    <finalName>YourIndieProject</finalName>
+    <finalName>CreditCardManager</finalName>
+
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+
     <pluginManagement>
       <plugins>
         <plugin>

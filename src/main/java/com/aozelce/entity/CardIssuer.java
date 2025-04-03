@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * The type Card issuer.
@@ -88,6 +89,17 @@ public class CardIssuer {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CardIssuer that = (CardIssuer) o;
+        return issuerId == that.issuerId && Objects.equals(issuerName, that.issuerName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(issuerId, issuerName);
+    }
 }
 
 
