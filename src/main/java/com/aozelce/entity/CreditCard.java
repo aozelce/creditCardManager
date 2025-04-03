@@ -3,6 +3,7 @@ package com.aozelce.entity;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Objects;
 
 /**
  * The type Credit card.
@@ -252,5 +253,17 @@ public class CreditCard {
                 ", creditLimit=" + creditLimit +
                 ", currentBalance=" + currentBalance +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        CreditCard that = (CreditCard) o;
+        return cardId == that.cardId && Objects.equals(user, that.user) && Objects.equals(cardNumber, that.cardNumber) && Objects.equals(expDate, that.expDate) && Objects.equals(ccv, that.ccv) && Objects.equals(dueDate, that.dueDate) && Objects.equals(creditLimit, that.creditLimit) && Objects.equals(currentBalance, that.currentBalance);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cardId, user, cardNumber, expDate, ccv, dueDate, creditLimit, currentBalance);
     }
 }
