@@ -168,6 +168,25 @@ public class User {
         this.lastName = lastName;
     }
 
+  /**
+   * Gets the list of credit cards associated with the user.
+   *
+   * @return the list of credit cards
+   */
+  public List<CreditCard> getCreditCards() {
+      return creditCards;
+  }
+
+  /**
+   * Sets the list of credit cards associated with the user.
+   *
+   * @param creditCards the list of credit cards to set
+   */
+  public void setCreditCards(List<CreditCard> creditCards) {
+      this.creditCards = creditCards;
+  }
+
+
     /**
      * Returns a string representation of the User object.
      *

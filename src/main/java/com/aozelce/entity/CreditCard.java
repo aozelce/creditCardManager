@@ -259,11 +259,11 @@ public class CreditCard {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         CreditCard that = (CreditCard) o;
-        return cardId == that.cardId && Objects.equals(user, that.user) && Objects.equals(cardNumber, that.cardNumber) && Objects.equals(expDate, that.expDate) && Objects.equals(ccv, that.ccv) && Objects.equals(dueDate, that.dueDate) && Objects.equals(creditLimit, that.creditLimit) && Objects.equals(currentBalance, that.currentBalance);
+        return getCardId() == that.getCardId() && Objects.equals(getCardNumber(), that.getCardNumber()) && Objects.equals(getExpDate(), that.getExpDate()) && Objects.equals(getCcv(), that.getCcv());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cardId, user, cardNumber, expDate, ccv, dueDate, creditLimit, currentBalance);
+        return Objects.hash(getCardId(), getCardNumber(), getExpDate(), getCcv());
     }
 }
