@@ -49,61 +49,22 @@ Topic: Data Access Objects (DAOs), Hibernate
 Topic: Hibernate
 
 - [x] Continue refining Hibernate implementation.
-- [ ] Develop the backend API to retrieve a list of credit cards for a user.
-- [ ] Project Steps:
-    - [ ] Create RESTful endpoints for CRUD operations.
-    - [ ] Test API endpoints with Postman or a similar tool.
+- [x] Develop the backend API to retrieve a list of credit cards for a user.
 
 ### Week 6: Deployment to AWS (2/24)
-Topic: Deployment to AWS, Individual Project Reviews
-
-- [ ] Begin exploring AWS CI/CD tools.
-- [ ] Prepare for deployment to AWS (EC2, Elastic Beanstalk).
-- [ ] Project Steps:
-    - [ ] Set up AWS Elastic Beanstalk environment.
-    - [ ] Deploy application to AWS.
-- [ ] Individual Project Reviews (Challenge).
-- [ ] Peer Design Review Feedback (Challenge).
+- Uncompleted steps moved to next weeks.
 
 ### Week 7: Security and Authentication (3/3)
-Topic: Security, Authentication
-
-- [ ] Integrate AWS Cognito for user sign-up and login.
-- [ ] Implement secure authentication and authorization.
-- [ ] Develop user management features (profile creation, password reset).
-- [ ] Project Steps:
-    - [ ] Integrate Cognito with backend.
-    - [ ] Create user management API endpoints.
-- [ ] Individual Project Checkpoint 2 due 3/5.
+- Uncompleted steps moved to next weeks.
 
 ### Week 8: Web Services Intro (3/10)
-Topic: Web Services Intro
-
-- [ ] Develop the backend API to add, edit, and delete credit cards.
-- [ ] Create the frontend UI using Bootstrap.
-- [ ] Project Steps:
-    - [ ] Create frontend forms and views for credit card management.
-    - [ ] Connect frontend to backend APIs.
+- Uncompleted steps moved to next weeks.
 
 ### Week 9: RESTful Web Services (3/24)
-Topic: RESTful Web Services
-
-- [ ] Implement due date notifications.
-- [ ] Implement robust data validation using Hibernate Validator and Bootstrap Validator.
-- [ ] Project Steps:
-    - [ ] Set up notification service for due dates.
-    - [ ] Validate input data in forms.
-- [ ] Individual Project Checkpoint 3 due 3/26.
-- [ ] Team project repository created with problem statement, project plan, etc.
+- Uncompleted steps moved to next weeks.
 
 ### Week 10: Work Week (3/31)
-Topic: Work Week
-
-- [ ] Refactor code for improved readability and maintainability.
-- [ ] Write comprehensive unit tests for all backend components.
-- [ ] Project Steps:
-    - [ ] Review and refactor codebase.
-    - [ ] Ensure all components are thoroughly tested.
+- Uncompleted steps moved to next weeks.
 
 ### Week 11: Work Week (4/7)
 Topic: Work Week
@@ -115,17 +76,54 @@ Topic: Work Week
 - [ ] Project Steps:
     - [ ] Conduct integration tests across all modules.
     - [ ] Collect and implement user feedback.
+      
+Topic: Hibernate
+  - [ ] Create RESTful endpoints for CRUD operations.
+  - [ ] Test API endpoints with Postman or a similar tool.
+
+Topic: Deployment to AWS, Individual Project Reviews
+
+- [ ] Begin exploring AWS CI/CD tools.
+- [ ] Prepare for deployment to AWS (EC2, Elastic Beanstalk).
+- [ ] Project Steps:
+  - [ ] Set up AWS Elastic Beanstalk environment.
+  - [ ] Deploy application to AWS.
+- [ ] Individual Project Reviews (Challenge).
+- [ ] Peer Design Review Feedback (Challenge).
 
 ### Week 12: Team Project Presentations (4/14)
-Topic: Team Project Presentations
 
-- [ ] Deploy the application to AWS.
-- [ ] Optimize performance and scalability.
-- [ ] Implement monitoring and alerting.
+Topic: Security, Authentication
+
+- [ ] Integrate AWS Cognito for user sign-up and login.
+- [ ] Implement secure authentication and authorization.
+- [ ] Develop user management features (profile creation, password reset).
 - [ ] Project Steps:
-    - [ ] Finalize deployment on AWS.
-    - [ ] Set up monitoring and alerting tools.
+  - [ ] Integrate Cognito with backend.
+  - [ ] Create user management API endpoints.
+- [ ] Individual Project Checkpoint 2 due 3/5.
+- 
+Topic: Team Project Presentations
+- [ ] Prepare for team project presentations.
 - [ ] Online Team Projects due 4/16, 9 p.m.
+
+Topic: Web Services Intro
+
+- [ ] Develop the backend API to add, edit, and delete credit cards.
+- [ ] Create the frontend UI using Bootstrap.
+- [ ] Project Steps:
+  - [ ] Create frontend forms and views for credit card management.
+  - [ ] Connect frontend to backend APIs.
+
+Topic: RESTful Web Services
+
+- [ ] Implement due date notifications.
+- [ ] Implement robust data validation using Hibernate Validator and Bootstrap Validator.
+- [ ] Project Steps:
+  - [ ] Set up notification service for due dates.
+  - [ ] Validate input data in forms.
+- [ ] Individual Project Checkpoint 3 due 3/26.
+- [ ] Team project repository created with problem statement, project plan, etc.
 
 ### Week 13: Asynchronous Messaging (4/21)
 Topic: Asynchronous Messaging
