@@ -15,14 +15,17 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class CardIssuerDaoTest {
 
-    private CardIssuerDao cardIssuerDao;
+    /**
+     * The Generic dao.
+     */
+    private GenericDao genericDao;
 
     /**
      * Sets up.
      */
     @BeforeEach
     void setUp() {
-        cardIssuerDao = new CardIssuerDao();
+        genericDao = new GenericDao(CardIssuer.class);
         Database database = Database.getInstance();
         database.runSQL("cleanDB.sql");
     }
@@ -32,7 +35,7 @@ class CardIssuerDaoTest {
      */
     @Test
     void getAllCardIssuers() {
-        List<CardIssuer> cardIssuers = cardIssuerDao.getAllCardIssuers();
+        List<CardIssuer> cardIssuers = genericDao.getAll();
         assertNotNull(cardIssuers);
         assertFalse(cardIssuers.isEmpty());
     }
@@ -42,9 +45,13 @@ class CardIssuerDaoTest {
      */
     @Test
     void getById() {
-        CardIssuer cardIssuer = cardIssuerDao.getById(1); // Assume ID 1 exists in the database
+        CardIssuer cardIssuer = (CardIssuer) genericDao.getById(1);
         assertNotNull(cardIssuer);
-        assertEquals("Visa", cardIssuer.getIssuerName());
+        CardIssuer expectedCardIssuer = new CardIssuer();
+        expectedCardIssuer.setIssuerId(1);
+        expectedCardIssuer.setIssuerName("Visa");
+        assertEquals(expectedCardIssuer, cardIssuer);
+
     }
 
     /**
@@ -52,12 +59,12 @@ class CardIssuerDaoTest {
      */
     @Test
     void update() {
-        CardIssuer cardIssuer = cardIssuerDao.getById(1);
+        CardIssuer cardIssuer = (CardIssuer) genericDao.getById(1);
         assertNotNull(cardIssuer);
         cardIssuer.setIssuerName("UpdatedIssuerName");
-        cardIssuerDao.update(cardIssuer);
+        genericDao.update(cardIssuer);
 
-        CardIssuer updatedCardIssuer = cardIssuerDao.getById(1);
+        CardIssuer updatedCardIssuer = (CardIssuer) genericDao.getById(1);
         assertEquals(cardIssuer, updatedCardIssuer);
     }
 
@@ -69,12 +76,12 @@ class CardIssuerDaoTest {
         CardIssuer newCardIssuer = new CardIssuer();
         newCardIssuer.setIssuerName("NewIssuer");
 
-        int newIssuerId = cardIssuerDao.insert(newCardIssuer);
+        int newIssuerId = genericDao.insert(newCardIssuer);
         assertTrue(newIssuerId > 0);
 
-        CardIssuer insertedCardIssuer = cardIssuerDao.getById(newIssuerId);
+        CardIssuer insertedCardIssuer = (CardIssuer) genericDao.getById(newIssuerId);
         assertNotNull(insertedCardIssuer);
-        assertEquals("NewIssuer", insertedCardIssuer.getIssuerName());
+        assertEquals(newCardIssuer, insertedCardIssuer);
     }
 
     /**
@@ -82,11 +89,11 @@ class CardIssuerDaoTest {
      */
     @Test
     void delete() {
-        CardIssuer cardIssuer = cardIssuerDao.getById(3);
+        CardIssuer cardIssuer = (CardIssuer) genericDao.getById(3);
         assertNotNull(cardIssuer);
 
-        cardIssuerDao.delete(cardIssuer);
-        CardIssuer deletedCardIssuer = cardIssuerDao.getById(3);
+        genericDao.delete(cardIssuer);
+        CardIssuer deletedCardIssuer = (CardIssuer) genericDao.getById(3);
         assertNull(deletedCardIssuer);
     }
 
@@ -94,19 +101,30 @@ class CardIssuerDaoTest {
      * Gets by property equal.
      */
     @Test
-    void getByPropertyEqual() {
-        List<CardIssuer> cardIssuers = cardIssuerDao.getByPropertyEqual("issuerName", "Visa");
-        assertNotNull(cardIssuers);
-        assertFalse(cardIssuers.isEmpty());
-        assertEquals("Visa", cardIssuers.get(0).getIssuerName());
+    public void testCardIssuerEquals() {
+        // Create a CardIssuer object with issuerName set
+        CardIssuer expectedIssuer = new CardIssuer("Visa");
+
+        // Insert the expectedIssuer into the database to get an auto-generated issuerId
+        GenericDao<CardIssuer> cardIssuerDao = new GenericDao<>(CardIssuer.class);
+        int id = cardIssuerDao.insert(expectedIssuer);
+        expectedIssuer.setIssuerId(id);
+
+        // Retrieve the CardIssuer by ID from the database
+        CardIssuer foundIssuer = cardIssuerDao.getById(id);
+
+        // Assert that the expectedIssuer is equal to the foundIssuer
+        assertNotNull(foundIssuer, "Issuer not found in the list.");
+        assertEquals(expectedIssuer, foundIssuer);
     }
+
 
     /**
      * Gets by property like.
      */
     @Test
     void getByPropertyLike() {
-        List<CardIssuer> cardIssuers = cardIssuerDao.getByPropertyLike("issuerName", "Vi");
+        List<CardIssuer> cardIssuers = genericDao.getByPropertyLike("issuerName", "Vi");
         assertNotNull(cardIssuers);
         assertFalse(cardIssuers.isEmpty());
         assertTrue(cardIssuers.stream().allMatch(cardIssuer -> cardIssuer.getIssuerName().contains("Vi")));
