@@ -1,9 +1,9 @@
 package com.aozelce.persistence;
 
+import com.aozelce.entity.CreditCard;
 import com.aozelce.entity.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 
 import java.util.List;
 
@@ -16,17 +16,16 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class UserDaoTest {
 
-    private UserDao userDao;
+    private GenericDao genericDao;
 
     /**
      * Sets up.
      */
     @BeforeEach
     void setUp() {
-        userDao = new UserDao();
+        genericDao = new GenericDao(User.class);
         Database database = Database.getInstance();
         database.runSQL("cleanDB.sql");
-
     }
 
     /**
@@ -34,7 +33,7 @@ class UserDaoTest {
      */
     @Test
     void getAllUsers() {
-        List<User> users = userDao.getAllUsers();
+        List<User> users = genericDao.getAll();
         assertNotNull(users);
         assertFalse(users.isEmpty());
     }
@@ -44,9 +43,17 @@ class UserDaoTest {
      */
     @Test
     void getById() {
-        User user = userDao.getById(1);
+        User user = (User)genericDao.getById(1);
         assertNotNull(user);
-        assertEquals("john_doe", user.getUsername());
+        User expectedUser = new User();
+        expectedUser.setUserId(1);
+        expectedUser.setUsername("john_doe");
+        expectedUser.setFirstName("John");
+        expectedUser.setLastName("John");
+        expectedUser.setEmail("john.doe@example.com");
+
+        assertEquals(expectedUser, user);
+
     }
 
     /**
@@ -54,13 +61,19 @@ class UserDaoTest {
      */
     @Test
     void update() {
-        User user = userDao.getById(1);
+        User user = (User) genericDao.getById(1);
         assertNotNull(user);
         user.setFirstName("UpdatedName");
-        userDao.update(user);
+        genericDao.update(user);
 
-        User updatedUser = userDao.getById(1);
-        assertEquals(updatedUser, user);
+        User updatedUser = (User) genericDao.getById(1);
+        User expectedUser = new User();
+        expectedUser.setUserId(1);
+        expectedUser.setUsername("john_doe");
+        expectedUser.setFirstName("UpdatedName");
+        expectedUser.setLastName("John");
+        expectedUser.setEmail("john.doe@example.com");
+        assertEquals(expectedUser, updatedUser);
     }
 
     /**
@@ -74,10 +87,10 @@ class UserDaoTest {
         newUser.setFirstName("New");
         newUser.setLastName("User");
 
-        int newUserId = userDao.insert(newUser);
+        int newUserId = genericDao.insert(newUser);
         assertTrue(newUserId > 0);
 
-        User insertedUser = userDao.getById(newUserId);
+        User insertedUser = (User) genericDao.getById(newUserId);
         assertNotNull(insertedUser);
         assertEquals(newUser, insertedUser);
     }
@@ -87,23 +100,36 @@ class UserDaoTest {
      */
     @Test
     void delete() {
-        User user = userDao.getById(3);
+        User user = (User) genericDao.getById(3);
         assertNotNull(user);
 
-        userDao.delete(user);
-        User deletedUser = userDao.getById(3);
+        genericDao.delete(user);
+        User deletedUser = (User) genericDao.getById(3);
         assertNull(deletedUser);
+
+        // Verify that the user's credit cards are also deleted.
+        GenericDao creditCardDao = new GenericDao(CreditCard.class);
+        List<CreditCard> orphanedCards = creditCardDao.getByPropertyEqual("user", user);
+        assertTrue(orphanedCards.isEmpty());
     }
+
 
     /**
      * Gets by property equal.
      */
     @Test
     void getByPropertyEqual() {
-        List<User> users = userDao.getByPropertyEqual("username", "jane_smith");
+        List<User> users = genericDao.getByPropertyEqual("username", "jane_smith");
         assertNotNull(users);
         assertEquals(1, users.size());
-        assertEquals("jane_smith", users.get(0).getUsername());
+        User expectedUser = new User();
+        expectedUser.setUserId(users.get(0).getUserId());
+        expectedUser.setUsername("jane_smith");
+        expectedUser.setEmail("jane.smith@example.com");
+        expectedUser.setFirstName("Jane");
+        expectedUser.setLastName("Smith");
+
+        assertEquals(expectedUser, users.get(0));
     }
 
     /**
@@ -111,7 +137,7 @@ class UserDaoTest {
      */
     @Test
     void getByPropertyLike() {
-        List<User> users = userDao.getByPropertyLike("email", "example.com");
+        List<User> users = genericDao.getByPropertyLike("email", "example.com");
         assertNotNull(users);
         assertFalse(users.isEmpty());
         assertTrue(users.stream().allMatch(user -> user.getEmail().contains("example.com")));
