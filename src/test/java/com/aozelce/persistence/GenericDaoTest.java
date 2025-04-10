@@ -32,7 +32,7 @@ class GenericDaoTest {
      */
     @Test
     void getById() {
-        User user = userDao.getById(User.class, 1); // Assume ID 1 exists in the database
+        User user = userDao.getById(1); // Assume ID 1 exists in the database
         assertNotNull(user);
         assertEquals("john_doe", user.getUsername());
     }
@@ -63,12 +63,12 @@ class GenericDaoTest {
      */
     @Test
     void update() {
-        User user = userDao.getById(User.class, 1);
+        User user = userDao.getById(1);
         assertNotNull(user);
         user.setEmail("updated.email@example.com");
         userDao.update(user);
 
-        User updatedUser = userDao.getById(User.class, 1);
+        User updatedUser = userDao.getById(1);
         assertEquals("updated.email@example.com", updatedUser.getEmail());
     }
 
@@ -77,11 +77,11 @@ class GenericDaoTest {
      */
     @Test
     void delete() {
-        User user = userDao.getById(User.class, 3); // Assume ID 3 exists in the database
+        User user = userDao.getById(3);
         assertNotNull(user);
 
         userDao.delete(user);
-        User deletedUser = userDao.getById(User.class, 3);
+        User deletedUser = userDao.getById(3);
         assertNull(deletedUser);
     }
 }
